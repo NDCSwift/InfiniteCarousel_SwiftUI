@@ -14,18 +14,24 @@
 
 import Foundation
 
+// MARK: - Data Model for Carousel Slides
+// This struct represents a single slide in the carousel.
+// Each slide contains metadata (title, location) and loads an image from an external API.
 struct Slide {
     let photoID: Int
     let title: String
     let location: String
-    
+
+    // Computed property that constructs the image URL using picsum.photos API
+    // This provides a reliable source of free images for the carousel
     var imageURL: URL? {
         URL(string: "https://picsum.photos/id/\(photoID)/900/1200")
     }
-    
 }
 
-
+// MARK: - Sample Data Extension
+// Provides default carousel content for testing and previewing.
+// Learners can add more slides here or fetch from a real API instead.
 extension Slide {
     static let featured: [Slide] = [
         Slide(photoID: 1015, title: "River Bend", location: "Cascade Range"),
